@@ -14,14 +14,14 @@ const Menu = (props: menuPropsI) => {
             <ActionButton.Item
                 buttonColor={themeSchema.colors.oranges[700]}
                 title="Dungeon"
-                onPress={() => console.log('notes tapped!')}
+                onPress={() => props.navigation.navigate('DungeonTable')}
             >
                 <Icon name="door" type="material-community" color="white" />
             </ActionButton.Item>
             <ActionButton.Item
                 buttonColor={themeSchema.colors.oranges[700]}
                 title="Eventos"
-                onPress={() => console.log('notes tapped!')}
+                onPress={() => props.navigation.navigate('EventsTable')}
             >
                 <Icon name="skull" type="material-community" color="white" />
             </ActionButton.Item>
