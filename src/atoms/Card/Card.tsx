@@ -24,7 +24,7 @@ interface cardPropsI {
 const CardContainer = styled.View`
     flex: 1;
     width: ${cardSize.width}px;
-    margin: ${themeSchema.space[4]}px;
+    margin: ${themeSchema.space[2]}px;
     justify-content: center;
     align-items: center;
 `;
