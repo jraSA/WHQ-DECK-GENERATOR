@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-import eventDeck, { back } from '../../assets/eventDeck';
+import dungeonDeck, { back, objectiveInstances } from '../../assets/dungeonDeck';
 import shuffle from '../../helpers/shuffle/Shuffle';
 import Deck from '../../molecules/Deck';
 import Table from '../../molecules/Table';
@@ -14,7 +14,12 @@ const DeckContainer = styled.View`
 
 const DungeonTable = (props: { navigation: any }) => {
     const renderItems = () => {
-        return <DeckContainer />;
+        return (
+            <DeckContainer>
+                <Deck generateDeck={() => shuffle(objectiveInstances)} back={back} />
+                <Deck generateDeck={() => shuffle(dungeonDeck)} back={back} />
+            </DeckContainer>
+        );
     };
 
     return <Table renderItems={renderItems} navigation={props.navigation} />;
