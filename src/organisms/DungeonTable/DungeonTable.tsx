@@ -19,10 +19,6 @@ const DungeonTable = (props: { navigation: any }) => {
 
     const [objectiveInstanceIndex, setObjectiveInstanceIndex] = useState(getRandomInstance());
 
-    const resetDungeonDeck = () => {
-        setObjectiveInstanceIndex(getRandomInstance());
-    };
-
     const getObjectiveInstanceIndexInsideDeck = (draft: any[]) => draft.length - 6 + Math.floor(Math.random() * 6);
 
     const generateDungeonDeck = () => {
@@ -32,6 +28,12 @@ const DungeonTable = (props: { navigation: any }) => {
         draft.splice(index, 0, objectiveInstances[objectiveInstanceIndex]);
         return draft;
     };
+    const [initialDeck, setInitialDeck] = useState(generateDungeonDeck());
+
+    const resetDungeonDeck = () => {
+        setObjectiveInstanceIndex(getRandomInstance());
+        setInitialDeck(generateDungeonDeck());
+    };
 
     const renderItems = () => {
         return (
@@ -39,7 +41,7 @@ const DungeonTable = (props: { navigation: any }) => {
                 <View>
                     <Card source={objectiveInstances[objectiveInstanceIndex]} onRevert={resetDungeonDeck} />
                 </View>
-                <Deck generateDeck={generateDungeonDeck} back={back} />
+                <Deck generateDeck={generateDungeonDeck} back={back} initialDeck={initialDeck} />
             </DeckContainer>
         );
     };
