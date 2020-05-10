@@ -1,19 +1,8 @@
 import React from 'react';
-import { Dimensions } from 'react-native';
 import { Icon } from 'react-native-elements';
 import styled from 'styled-components/native';
 
-import themeSchema from '../../theme/themeSchema';
-
-const windowHeight = Dimensions.get('screen').height;
-const BOTTON_MARGIN = 100;
-
-const getCardSize = () =>
-    windowHeight - BOTTON_MARGIN < themeSchema.sizes.card.medium.height
-        ? themeSchema.sizes.card.small
-        : themeSchema.sizes.card.medium;
-
-const cardSize = getCardSize();
+import themeSchema, { cardSize, cardMargin } from '../../theme/themeSchema';
 
 interface cardPropsI {
     source: any;
@@ -24,7 +13,7 @@ interface cardPropsI {
 const CardContainer = styled.View`
     flex: 1;
     width: ${cardSize.width}px;
-    margin: ${themeSchema.space[2]}px;
+    margin: ${cardMargin}px;
     justify-content: center;
     align-items: center;
 `;

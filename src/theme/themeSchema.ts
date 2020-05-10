@@ -3,6 +3,8 @@
   https://system-ui.com/theme/
 */
 
+import { Dimensions } from 'react-native';
+
 const themeSchema = {
     space: [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50],
     padding: [0, 1, 3, 5, 10, 15, 20],
@@ -58,8 +60,25 @@ const themeSchema = {
     },
 
     // Aliases
-    DEFAULT_MARGIN: 50,
-    HERO_DOTPAGINATOR_TOP: -50,
+
+    BOTTON_MARGIN: 100,
 };
+
+//Dimension relative values
+
+const windowHeight = Dimensions.get('screen').height;
+
+const getCardSize = () =>
+    windowHeight - themeSchema.BOTTON_MARGIN < themeSchema.sizes.card.medium.height
+        ? themeSchema.sizes.card.small
+        : themeSchema.sizes.card.medium;
+
+const getCardMargin = () =>
+    windowHeight - themeSchema.BOTTON_MARGIN < themeSchema.sizes.card.medium.height
+        ? themeSchema.space[0]
+        : themeSchema.space[8];
+
+export const cardSize = getCardSize();
+export const cardMargin = getCardMargin();
 
 export default themeSchema;

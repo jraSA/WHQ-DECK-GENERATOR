@@ -1,19 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 
 import Card from '../../atoms/Card';
-import themeSchema from '../../theme/themeSchema';
-
-const windowHeight = Dimensions.get('screen').height;
-const BOTTON_MARGIN = 100;
-
-const getCardSize = () =>
-    windowHeight - BOTTON_MARGIN < themeSchema.sizes.card.medium.height
-        ? themeSchema.sizes.card.small
-        : themeSchema.sizes.card.medium;
-
-const cardSize = getCardSize();
+import themeSchema, { cardSize, cardMargin } from '../../theme/themeSchema';
 
 interface deckPropsI {
     generateDeck: () => any[];
@@ -25,12 +14,13 @@ const DeckContainer = styled.View`
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-bottom: ${themeSchema.space[4]}px;
 `;
 
 const CardHolder = styled.View`
     width: ${cardSize.width}px;
     height: ${cardSize.height}px;
-    margin: ${themeSchema.space[2]}px;
+    margin: ${cardMargin}px;
 `;
 
 const Deck = (props: deckPropsI) => {
