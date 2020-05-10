@@ -3,12 +3,21 @@ import { createAppContainer, createBottomTabNavigator } from 'react-navigation';
 
 import DungeonTable from './src/organisms/DungeonTable';
 import EventsTable from './src/organisms/EventsTable';
+import TreasuresTable from './src/organisms/TreasuresTable';
 
 const stackNavigator = createBottomTabNavigator(
     {
         EventsTable: {
             screen: EventsTable,
             path: 'eventsTable',
+            navigationOptions: () => ({
+                header: null,
+                tabBarVisible: false,
+            }),
+        },
+        TreasuresTable: {
+            screen: TreasuresTable,
+            path: 'treasuresTable',
             navigationOptions: () => ({
                 header: null,
                 tabBarVisible: false,
@@ -24,7 +33,7 @@ const stackNavigator = createBottomTabNavigator(
         },
     },
     {
-        initialRouteName: 'EventsTable',
+        initialRouteName: 'DungeonTable',
     }
 );
 

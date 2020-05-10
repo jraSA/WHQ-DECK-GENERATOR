@@ -28,7 +28,7 @@ const Menu = (props: menuPropsI) => {
             <ActionButton.Item
                 buttonColor={themeSchema.colors.oranges[700]}
                 title="Tesoros"
-                onPress={() => console.log('notes tapped!')}
+                onPress={() => props.navigation.navigate('TreasuresTable')}
             >
                 <Icon name="treasure-chest" type="material-community" color="white" />
             </ActionButton.Item>
