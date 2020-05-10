@@ -1,15 +1,25 @@
 import React from 'react';
-import { createAppContainer, createStackNavigator } from 'react-navigation';
+import { createAppContainer, createBottomTabNavigator } from 'react-navigation';
 
+import DungeonTable from './src/organisms/DungeonTable';
 import EventsTable from './src/organisms/EventsTable';
 
-const stackNavigator = createStackNavigator(
+const stackNavigator = createBottomTabNavigator(
     {
         EventsTable: {
             screen: EventsTable,
             path: 'eventsTable',
             navigationOptions: () => ({
                 header: null,
+                tabBarVisible: false,
+            }),
+        },
+        DungeonTable: {
+            screen: DungeonTable,
+            path: 'dungeonTable',
+            navigationOptions: () => ({
+                header: null,
+                tabBarVisible: false,
             }),
         },
     },

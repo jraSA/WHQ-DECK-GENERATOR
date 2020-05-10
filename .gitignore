@@ -1,5 +1,6 @@
 node_modules/**/*
 .expo/*
+.expo-shared
 npm-debug.*
 *.jks
 *.p12
@@ -8,3 +9,5 @@ npm-debug.*
 *.orig.*
 web-build/
 web-report/
+
+.now

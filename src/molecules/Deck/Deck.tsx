@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 
@@ -17,6 +17,7 @@ const cardSize = getCardSize();
 
 interface deckPropsI {
     generateDeck: () => any[];
+    initialDeck?: any[];
     back: any;
 }
 const DeckContainer = styled.View`
@@ -29,12 +30,12 @@ const DeckContainer = styled.View`
 const CardHolder = styled.View`
     width: ${cardSize.width}px;
     height: ${cardSize.height}px;
-    margin: ${themeSchema.space[4]}px;
+    margin: ${themeSchema.space[2]}px;
 `;
 
 const Deck = (props: deckPropsI) => {
-    const { generateDeck, back } = props;
-    const [deck, setDeck] = useState(generateDeck());
+    const { generateDeck, back, initialDeck } = props;
+    const [deck, setDeck] = useState(initialDeck ? initialDeck : generateDeck());
     const [hand, setHand] = useState([] as any[]);
     const [currentCard, setCurrentCard] = useState();
 
@@ -77,6 +78,10 @@ const Deck = (props: deckPropsI) => {
     const renderCurrentCard = () => {
         return currentCard ? <Card source={currentCard} onRevert={returnCardToDeck} /> : <CardHolder />;
     };
+
+    useEffect(() => {
+        initialDeck && shuffleDeck();
+    }, [initialDeck]);
 
     return (
         <DeckContainer>

@@ -6,7 +6,8 @@ import Card from './index';
 
 describe('Card Snapshot test', () => {
     it('renders correctly', () => {
-        const tree = renderer.create(<Card />).toJSON();
+        const back = require('../../../assets/eventCards/back.png');
+        const tree = renderer.create(<Card source={back} />).toJSON();
 
         expect(tree).toMatchSnapshot();
     });

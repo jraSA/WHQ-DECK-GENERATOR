@@ -24,6 +24,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "A simple WHQ deck generator",
+    "githubUrl": "https://github.com/jraSA/WHQ-DECK-GENERATOR"
   }
 }
