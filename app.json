@@ -24,7 +24,9 @@
     ],
     "android": {
       "package": "com.software.artisan.whqdeckgenerator",
-      "versionCode": 1
+      "versionCode": 1,
+      "permissions" : []
+
     },
     "ios": {
       "bundleIdentifier": "com.software.artisan.whqdeckgenerator",
